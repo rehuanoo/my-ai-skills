@@ -1,0 +1,5 @@
+# Transformers 本地推理
+torch>=2.1
+transformers>=4.40
+accelerate>=0.30
+huggingface-hub>=0.23

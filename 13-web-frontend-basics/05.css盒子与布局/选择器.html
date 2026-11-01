@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    ul li {
+      color: red;
+    }
+
+    .bt li {
+      color: blue;
+    }
+
+    .bt>li {
+      color: green;
+    }
+
+    /* 空格表示父类以下所有的，>表示父类的下一级 */
+    /* 类选择器优先级大于普通选择器 */
+  </style>
+  <ul class="bt">
+    <li>
+      <ol>
+        <li>小标题1</li>
+        <li>小标题2</li>
+        <li>小标题3</li>
+      </ol>
+    </li>
+    <li>标题2</li>
+    <li>标题3</li>
+    <li>标题4</li>
+    <li>标题5</li>
+  </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>讯飞星火 - UI Demo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="dock" aria-label="快捷工具">
+      <button class="dock__btn" type="button" id="btnToggleSidebar" aria-label="打开侧边栏">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <button class="dock__btn dock__btn--primary" type="button" aria-label="新建">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="dock__spacer" aria-hidden="true"></div>
+      <button class="dock__btn" type="button" aria-label="历史">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M21 12a9 9 0 1 1-3.1-6.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <button class="dock__btn" type="button" aria-label="收藏">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 4h12v18l-6-4-6 4V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
+    <aside class="sidebar" id="sidebar" aria-label="会话列表" aria-hidden="true">
+      <div class="sidebar__header">
+        <div class="brand">
+          <div class="brand__mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2c3 2.5 4.5 5 4.5 7.6 0 1.9-.8 3.5-2.1 4.7 2.7-.3 5.1-2.4 5.1-5.7 2.2 2.3 3 5.2 2.1 8.2C20.2 20.7 16.4 22 12 22c-4.4 0-8.2-1.3-9.6-5.2-1.4-4 1.3-8 4.8-10.2-.2 2.4.6 4.3 2.2 5.5C8.9 8.7 10.1 5.4 12 2Z"
+                fill="url(#gradFire)" />
+              <defs>
+                <linearGradient id="gradFire" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF5A5F" />
+                  <stop offset="1" stop-color="#3D7BFF" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand__name">讯飞星火</div>
+        </div>
+        <button class="icon-btn" type="button" aria-label="置顶">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14 3l7 7-4 1-2 8-3-3-3 3-1-4-4-4 10-8Z" stroke="currentColor"
+              stroke-width="2" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="menu-item menu-item--large" type="button">
+          <span class="menu-item__icon" aria-hidden="true">＋</span>
+          <span class="menu-item__text">新建对话</span>
+        </button>
+        <button class="menu-item" type="button">
+          <span class="menu-item__icon" aria-hidden="true">🌓</span>
+          <span class="menu-item__text">AstronClaw</span>
+          <span class="menu-item__badge">NEW</span>
+        </button>
+        <button class="menu-item" type="button">
+          <span class="menu-item__icon" aria-hidden="true">🤖</span>
+          <span class="menu-item__text">智能体广场</span>
+        </button>
+        <button class="menu-item" type="button">
+          <span class="menu-item__icon" aria-hidden="true">🕘</span>
+          <span class="menu-item__text">历史对话</span>
+        </button>
+      </div>
+
+      <div class="sidebar__section sidebar__section--muted">
+        <div class="sidebar__label">最近对话</div>
+        <div class="chat-list" id="chatList">
+          <button class="chat-item" type="button">
+            <span class="chat-item__avatar" aria-hidden="true">👤</span>
+            <span class="chat-item__title">你是ta的最佳男/女友嘛</span>
+          </button>
+          <button class="chat-item" type="button">
+            <span class="chat-item__avatar" aria-hidden="true">🎬</span>
+            <span class="chat-item__title">毒舌影评</span>
+          </button>
+          <button class="chat-item" type="button">
+            <span class="chat-item__avatar" aria-hidden="true">🎨</span>
+            <span class="chat-item__title">吉卜力画师</span>
+          </button>
+          <button class="chat-item" type="button">
+            <span class="chat-item__avatar" aria-hidden="true">📊</span>
+            <span class="chat-item__title">PPT大纲助手</span>
+          </button>
+          <button class="chat-item" type="button">
+            <span class="chat-item__avatar" aria-hidden="true">🧩</span>
+            <span class="chat-item__title">SWOT分析</span>
+          </button>
+          <button class="chat-item" type="button">
+            <span class="chat-item__avatar" aria-hidden="true">🖌️</span>
+            <span class="chat-item__title">绘画大师</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <header class="topbar" aria-label="顶部栏">
+      <div class="topbar__right">
+        <button class="avatar" type="button" aria-label="账号">
+          <span class="avatar__dot" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero" aria-label="主页">
+        <div class="logo" aria-label="SPARK">
+          <span class="logo__s">SP</span><span class="logo__a">A</span><span class="logo__rk">RK</span>
+        </div>
+
+        <nav class="tabs" aria-label="功能入口">
+          <button class="tab tab--active" type="button">通用</button>
+          <button class="tab" type="button">写作助手</button>
+          <button class="tab" type="button">分析研究</button>
+          <button class="tab" type="button">PPT生成</button>
+          <button class="tab" type="button">文本理解</button>
+          <button class="tab" type="button">代码生成</button>
+          <button class="tab" type="button">更多</button>
+        </nav>
+
+        <form class="composer" id="composer">
+          <div class="composer__box">
+            <div class="composer__chips" id="chips">
+              <span class="chip">
+                学习助手｜有问必答，让AI陪你学
+                <button class="chip__x" type="button" aria-label="移除">×</button>
+              </span>
+            </div>
+
+            <label class="sr-only" for="prompt">输入问题</label>
+            <input id="prompt" class="composer__input" type="text" placeholder="为什么会失败呢？" autocomplete="off" />
+
+            <div class="composer__actions">
+              <button class="icon-btn" type="button" aria-label="上传">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M21 11.5V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7.5"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M21 3v6h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M21 3l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+              <button class="icon-btn" type="button" aria-label="语音">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 14a3 3 0 0 0 3-3V7a3 3 0 0 0-6 0v4a3 3 0 0 0 3 3Z"
+                    stroke="currentColor" stroke-width="2" />
+                  <path d="M19 11a7 7 0 0 1-14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+              <button class="send-btn" type="submit" aria-label="发送">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12l16-8-5 16-2-7-9-1Z" fill="currentColor" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <section class="cards" aria-label="快捷能力">
+          <article class="card">
+            <div class="card__title">科研助手</div>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">🧠</span>
+              <span class="card__text">论文写作</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">📄</span>
+              <span class="card__text">论文解读</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">🔎</span>
+              <span class="card__text">学术检索</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+          </article>
+
+          <article class="card">
+            <div class="card__title">求职助手</div>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">🧾</span>
+              <span class="card__text">简历优化</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">💼</span>
+              <span class="card__text">职业规划</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">🧠</span>
+              <span class="card__text">模拟面试</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+          </article>
+
+          <article class="card">
+            <div class="card__title">研究助手</div>
+            <div class="card__grid">
+              <button class="mini" type="button">
+                <span class="mini__icon" aria-hidden="true">🧭</span>
+                <span class="mini__text">方向分析</span>
+              </button>
+              <button class="mini" type="button">
+                <span class="mini__icon" aria-hidden="true">📌</span>
+                <span class="mini__text">问题抽取</span>
+              </button>
+              <button class="mini" type="button">
+                <span class="mini__icon" aria-hidden="true">🧪</span>
+                <span class="mini__text">方案构想</span>
+              </button>
+              <button class="mini" type="button">
+                <span class="mini__icon" aria-hidden="true">📈</span>
+                <span class="mini__text">综合分析</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__title">智能体</div>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">🦾</span>
+              <span class="card__text">Claw｜密探</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">🪄</span>
+              <span class="card__text">全能办公助手</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+            <button class="card__item" type="button">
+              <span class="card__icon" aria-hidden="true">🧠</span>
+              <span class="card__text">甘特图计划</span>
+              <span class="card__arrow" aria-hidden="true">›</span>
+            </button>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    const btnToggleSidebar = document.getElementById('btnToggleSidebar');
+
+    function setSidebarOpen(open) {
+      const isDesktop = window.matchMedia('(min-width: 980px)').matches;
+      if (isDesktop) {
+        sidebar.classList.toggle('sidebar--open', open);
+      } else {
+        sidebar.classList.toggle('sidebar--open', open);
+        backdrop.hidden = !open;
+      }
+      sidebar.setAttribute('aria-hidden', String(!open));
+    }
+
+    btnToggleSidebar.addEventListener('click', () => {
+      const open = !sidebar.classList.contains('sidebar--open');
+      setSidebarOpen(open);
+    });
+
+    backdrop.addEventListener('click', () => setSidebarOpen(false));
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setSidebarOpen(false);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 980px)').matches) {
+        backdrop.hidden = true;
+      } else if (!sidebar.classList.contains('sidebar--open')) {
+        backdrop.hidden = true;
+      }
+    });
+
+    const tabs = Array.from(document.querySelectorAll('.tab'));
+    tabs.forEach((t) => {
+      t.addEventListener('click', () => {
+        tabs.forEach((x) => x.classList.remove('tab--active'));
+        t.classList.add('tab--active');
+      });
+    });
+
+    document.querySelectorAll('.chip__x').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const chip = e.currentTarget.closest('.chip');
+        if (chip) chip.remove();
+      });
+    });
+
+    const composer = document.getElementById('composer');
+    const prompt = document.getElementById('prompt');
+    const chatList = document.getElementById('chatList');
+
+    composer.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const value = (prompt.value || '').trim();
+      if (!value) return;
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'chat-item';
+      btn.innerHTML = '<span class="chat-item__avatar" aria-hidden="true">💬</span><span class="chat-item__title"></span>';
+      btn.querySelector('.chat-item__title').textContent = value.slice(0, 24);
+      chatList.prepend(btn);
+      prompt.value = '';
+      setSidebarOpen(true);
+    });
+
+    setSidebarOpen(false);
+  </script>
+
+</body>
+

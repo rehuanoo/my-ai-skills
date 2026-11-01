@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text">
+  <button>提交</button>
+  <div id="result"></div>
+  <script>
+
+
+    let input = document.querySelector('input')
+    let btn = document.querySelector('button')
+    let resultDiv = document.querySelector('#result')
+    btn.onclick = async function () {
+
+      // let eventSource = new EventSource('/api/chat_stream?chat=' + input.value)
+      // eventSource.onmessage = function (e) {
+      //   console.log(e.data)
+      //   if (e.data == '!!!finish!!!]') {
+      //     eventSource.close()
+      //     return
+      //   }
+      //   if (e.data == '!!!error!!!]') {
+      //     console.log('error出错了')
+      //     return
+      //   }
+      //   result.innerHTML += e.data
+      // }
+      let res = await getChatStream(input.value, function (data) {
+        resultDiv.innerHTML += data
+      })
+    }
+
+    function getChatStream(chat, callback) {
+      return new Promise((resolve, reject) => {
+        // 创建 SSE 连接，请求你的后端接口 /api/chat_stream，把用户问题传过去
+        let eventSource = new EventSource('/api/chat_stream?chat=' + chat)
+        let result = []
+        eventSource.onmessage = function (e) {
+          // console.log(e.data)
+          if (e.data == '!!!finish!!!') {
+            eventSource.close()
+            resolve(result.join(''))
+            return
+          }
+          if (e.data == '!!!error!!!') {
+            console.log('error出错了')
+            return
+          }
+          result.push(e.data)
+          callback(e.data)
+        }
+      })
+
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 用异步的写法达到同步的效果 -->
+
+  <!-- http://pddfps.tianqiapi.com/api?unescape=1&version=v63&appid=YOUR_APPID&appsecret=YOUR_APPSECRET&city=%E5%8D%81%E5%A0%B0 -->
+</head>
+
+<body>
+  <input type="text" placeholder="请输入你要查询的城市">
+  <button>查询</button>
+  <div id="resultDiv"></div>
+
+  <script>
+
+
+
+    function ajaxAsync(url) {
+      return new Promise(function (resolve, reject) {
+
+        var xhr = new XMLHttpRequest();
+        // 设置请求地址和方法
+        xhr.open('get', url);
+        // 异步过程,js会继续运行其它代码
+        // 监听请求状态
+        xhr.onreadystatechange = function () {
+
+          if (xhr.readyState === 4) {
+            // 判断响应状态码是否为200，表示请求成功
+            if (xhr.status === 200) {
+              let data = JSON.parse(xhr.responseText)
+
+              resolve(xhr);
+
+
+              // 获取响应数据
+              // var data = xhr.responseText;
+              // console.log(data);
+
+            } else {
+              // 请求失败，调用error函数
+              reject(xhr);
+            }
+          }
+        }
+
+        // 发送请求
+        xhr.send()
+
+      })
+    }
+
+    let btn = document.querySelector('button')
+    let input = document.querySelector('input')
+    btn.onclick = async function () {
+      let city = input.value
+      let url = `http://pddfps.tianqiapi.com/api?unescape=1&version=v63&appid=YOUR_APPID&appsecret=YOUR_APPSECRET&city=${city}`
+      console.log(city);
+      let result = await ajaxAsync(url)
+      let data = JSON.parse(result.responseText)
+      console.log(result);
+
+      resultDiv.innerHTML = `
+      <h1>城市:${data.city}</h1>
+      <h1>温度:${data.tem}</h1>
+      <h1>天气:${data.wea}</h1>
+      <h1>风力:${data.win_speed}</h1>
+      <p>温馨提示：${data.air_tips}</p>`
+    }
+
+    input.onkeydown = function (e) {
+      if (e.key === 'Enter') {
+        btn.onclick()
+      }
+    }
+
+  </script>
+</body>
+
+</html>

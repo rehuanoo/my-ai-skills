@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <form action="/login" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="用户名"><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="密码">
+    <br>
+
+    <!-- 设置保存登录状态多少天 -->
+    <label for="remember">保存登录状态：</label>
+    1天<input type="radio" name="remember" id="remember" value="1">
+    7天<input type="radio" name="remember" id="remember" value="7">
+    30天<input type="radio" name="remember" id="remember" value="30"><br>
+    <input type="submit" value="登录">
+
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+# Flask AI 后端
+flask>=3.0
+flask-cors>=4.0
+# 智谱 AI 官方 SDK（新版模块名为 zai；若安装失败请到智谱开放平台查看当前包名）
+zai-sdk>=0.1.0

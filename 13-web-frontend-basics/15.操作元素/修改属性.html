@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="btns">
+    <button id="d1" class="active" xcdm="hxc777">列表一</button>
+    <button id="d2" lcdm="hxc666">列表二</button>
+  </div>
+
+  <script>
+    let d1 = document.querySelector('#d1')
+    let d2 = document.querySelector('#d2')
+
+
+    let currentDiv = d1
+
+    d1.onclick = function (event) {
+      d1.id = 'd3'
+      let value = d1.getAttribute('xcdm')
+      console.log(value)
+      d1.setAttribute('xcdm', 'hxc888')
+
+    }
+    d2.onclick = d1.onclick
+  </script>
+</body>
+
+</html>

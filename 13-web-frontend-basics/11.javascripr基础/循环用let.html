@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    for (var i = 0; i < 10; i++) {
+      setTimeout(function () {
+        console.log(i);
+      }, 1000)
+    }
+    //输出10个10
+    for (let i = 0; i < 10; i++) {
+      setTimeout(function () {
+        console.log(i);
+      }, 1000)
+    }
+    // var是全局共用的变量，如果用var同时运行多个循环+异步（定时器、事件、Ajax 等），
+    // 那么先运行的var变量会导致被后运行的var变量所覆盖，
+    // 导致前面循环结果出现错误，最后一个是正确的。
+    // 而let是块级作用域，每次循环都会创建一个新的变量i，
+  </script>
+</body>
+
+</html>

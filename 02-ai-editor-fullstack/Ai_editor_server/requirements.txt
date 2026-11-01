@@ -1,0 +1,6 @@
+# AI 智能编辑器后端
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+langchain-openai>=0.2
+python-dotenv>=1.0

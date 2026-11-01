@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="p1">点击触发事件</div>
+
+
+  <script>
+    let p1 = document.querySelector('.p1')
+    p1.onclick = function () {
+      p1.innerHTML = "<p>改为p标签</p>"
+    }
+  </script>
+
+</body>
+
+</html>

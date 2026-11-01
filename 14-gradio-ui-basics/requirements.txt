@@ -1,0 +1,6 @@
+# Gradio 界面开发
+gradio>=4.44
+torch>=2.1
+transformers>=4.40
+accelerate>=0.30
+bitsandbytes>=0.43

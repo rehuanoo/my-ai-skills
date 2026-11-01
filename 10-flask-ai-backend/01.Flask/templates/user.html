@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <p>尊敬的{{username}}
+    {% if gender == 'man' %}
+    <span>先生</span>
+    {% elif gender =='women' %}
+    <span>女士</span>
+    {% else %}
+    <span>未知</span>
+    {% endif %}
+  </p>
+
+  <p>dict获取名称{{userDict.username}}</p>
+  <p>dict获取年龄{{userDict.age}}</p>
+
+
+  <p>dict获取性别{{userDict.gender}}</p>
+
+  <ul>
+    {% for items in userDict.fruits %}
+    <li>喜欢的水果是{{items}}</li>
+    {% endfor %}
+
+  </ul>
+
+
+</body>
+
+</html>

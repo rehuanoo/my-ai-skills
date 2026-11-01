@@ -1,0 +1,8 @@
+# 爬虫与数据分析
+requests>=2.31
+pyquery>=2.0
+playwright>=1.40
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+jupyterlab>=4.0

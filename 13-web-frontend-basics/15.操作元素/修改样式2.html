@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="btns">
+    <button id="d1" class="active">列表一</button>
+    <button id="d2">列表二</button>
+  </div>
+
+  <script>
+    let d1 = document.querySelector('#d1')
+    let d2 = document.querySelector('#d2')
+
+
+    let currentDiv = d1
+
+    d1.onclick = function (event) {
+      // d1.style.backgroundColor = 'red'
+
+      currentDiv.classList.remove('active')
+
+      //设置当前点击的元素添加active类
+      event.target.classList.add('active')
+
+      // currentDiv = event.target
+      // currentDiv.className=''
+      // event.target.className='active'
+      // 这种写法也行，但是不如上面的好，如果有多个类名，该方法清除所有类名
+      currentDiv = event.target
+    }
+    d2.onclick = d1.onclick
+  </script>
+</body>
+
+</html>

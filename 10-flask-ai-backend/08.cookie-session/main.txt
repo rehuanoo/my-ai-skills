@@ -1,0 +1,13 @@
+cookie:让网页知道你是谁，什么时候登录的，也可以存储一些数据，也可以当做一个已登录的凭证从而进行爬虫
+当你res.set_cookie('username',username)
+        res.set_cookie('islogin','true')，浏览器会自动保存，下次访问设置cookie时的端口号的其他路由
+        ，会自动带上cookie
+
+
+
+session:session是基于cookie的，session是存储在服务器端的，session的值是保存在cookie中的，session的值是加密的
+session原理是：app.secret_key+用户信息加密在cookie中，生成密文
+
+
+redirect重定向：redirect('/login')，重定向到/login路由，重定向是服务器端操作，客户端不知道，客户端只能看到url的变化
+302是临时重定向，301是永久重定向，永久重定向是浏览器会记住，下次访问直接访问重定向后的url，不会访问重定向前的url

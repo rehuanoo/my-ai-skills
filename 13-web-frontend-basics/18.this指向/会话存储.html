@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>请登录</button>
+
+  <script>
+    let btn = document.querySelector('button')
+    btn.onclick = function () {
+      let account = prompt('请输入账号')
+      let password = prompt('请输入密码')
+      if (account === 'admin' && password === '123456') {
+        //登录成功
+        alert('登录成功')
+        //登录数据存放到本地
+        sessionStorage.setItem('account', account)
+        sessionStorage.setItem('password', password)
+        sessionStorage.setItem('isLogin', true)
+
+        document.body.removeChild(btn)
+        let p = document.createElement('p')
+        p.innerText = '欢迎回来' + account
+        document.body.appendChild(p)
+
+        let loginout = document.createElement('button')
+        loginout.innerText = '退出登录'
+        document.body.appendChild(loginout)
+        loginout.onclick = function () {
+          sessionStorage.removeItem('account')
+          sessionStorage.removeItem('password')
+          sessionStorage.removeItem('isLogin')
+          location.reload()
+        }
+
+
+      }
+
+
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      let account = sessionStorage.getItem('account')
+      let password = sessionStorage.getItem('password')
+      let isLogin = sessionStorage.getItem('isLogin')
+      if (isLogin) {
+        alert('欢迎回来')
+        document.body.removeChild(btn)
+        let p = document.createElement('p')
+        p.innerText = '欢迎回来' + account
+        document.body.appendChild(p)
+
+        let loginout = document.createElement('button')
+        loginout.innerText = '退出登录'
+        document.body.appendChild(loginout)
+        loginout.onclick = function () {
+          sessionStorage.removeItem('account')
+          sessionStorage.removeItem('password')
+          sessionStorage.removeItem('isLogin')
+          location.reload()
+        }
+
+      }
+    })
+  </script>
+</body>
+
+</html>

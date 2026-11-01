@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      background-color: #eef;
+      transition: all 1s;
+    }
+
+    body.active {
+      background-color: #fff;
+      transition: all 1s;
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+  <script>
+    // setTimeout(function(){
+
+    // })
+    // 普通函数：传统写法，this 会变
+
+    // 延迟函数
+
+    // // 箭头函数：简洁写法，this 继承外部，更稳定
+    // let timer = setTimeout(() => {
+    //   alert('即将关闭')
+
+
+    // }, 5000
+
+    // )
+
+    // window.addEventListener('mousemove', () => {
+    //   clearTimeout(timer)
+    //   timer = setTimeout(() => {
+    //     alert('即将关闭')
+
+    //   }, 5000
+    //   )
+
+    // })
+
+
+    // // 间隔函数
+    // let isActive = false
+    // setInterval(() => {
+    //   if (isActive) {
+    //     isActive = false
+    //     document.body.classList.remove('active')
+    //   } else {
+    //     isActive = true
+    //     document.body.classList.add('active')
+    //   }
+    // }, 5000)
+
+    let timer2 = setInterval(() => {
+      document.body.classList.toggle('active')
+    }, 3000)
+    window.addEventListener("DOMContentLoaded", () => {
+      let btn = document.querySelector('button')
+      btn.addEventListener('click', () => {
+        clearInterval(timer2)
+      })
+
+    })
+
+
+
+  </script>
+  <button>关闭呼吸灯</button>
+</body>
+
+</html>

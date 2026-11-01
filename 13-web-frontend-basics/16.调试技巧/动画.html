@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+    }
+
+    .leftPane {
+      width: 200px;
+      height: 100vh;
+      background-color: rgb(229, 190, 190);
+
+
+    }
+
+    .rightPane {
+      width: 100%;
+      height: 100vh;
+      background-color: rgb(184, 184, 212);
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="leftPane">侧边栏</div>
+  <div class="rightPane"><button>控制侧边栏</button>内容区</div>
+
+  <script>
+    var btn = document.querySelector('button')
+    var leftPane = document.querySelector('.leftPane')
+    var widthValue = 200
+    btn.onclick = function () {
+      if (widthValue === 200) {
+
+        var t1 = setInterval(function () {
+          widthValue -= 10
+          if (widthValue <= 0) {
+            clearInterval(t1)
+            widthValue = 0
+          }
+          leftPane.style.width = widthValue + 'px'
+
+        }, 16)
+
+      } else if (widthValue === 0) {
+
+        var t2 = setInterval(function () {
+          widthValue += 10
+          if (widthValue >= 200) {
+            clearInterval(t2)
+            widthValue = 200
+          }
+          leftPane.style.width = widthValue + 'px'
+
+        }, 16)
+
+      }
+    }
+
+
+  </script>
+
+</body>
+
+</html>

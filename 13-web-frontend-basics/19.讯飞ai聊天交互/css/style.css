@@ -1,0 +1,397 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+
+}
+.leftPane{
+  width: 260px;
+  height: 100%;
+  display: flex;
+  background-color: #162540;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 5px 0px 6px  #000;
+  position: relative;
+
+}
+.leftPane .logo{
+  display: flex;
+  padding: 25px;
+  justify-content: center;
+}
+.leftPane .logo img{
+  height: 25px;
+}
+.btns{
+  display: flex;
+padding: 20px;
+justify-content: space-between;
+}
+.btns button{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4a71ef;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+
+}
+.left-content-header{
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #465740;
+ flex-shrink: 0;
+}
+.left-content-header>div{
+  width: 60px;
+  height: 50px;
+  border-bottom: 2px solid #465740;
+  color: #465740;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-content-header>div.active,.left-content-header>div:hover{
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
+.left-content-list.active{
+  display: flex;
+  flex-direction: column;
+}
+
+.left-content-list{
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+}
+.left-content-list .list-item .chat-content{
+  flex:1;
+  overflow: hidden;
+/* 设置不换行 */
+white-space: nowrap;
+/* 超出部分显示省略号 */
+text-overflow: ellipsis;
+
+}
+.left-content-list.helper .list-item{
+  display: flex;
+height: 50px;
+padding: 10px;
+align-items: center; 
+color: #ccc;
+font-size: 14px;
+overflow: hidden;
+/* 设置不换行 */
+white-space: nowrap;
+/* 超出部分显示省略号 */
+text-overflow: ellipsis;
+position: relative;
+
+}
+.left-content-list.history .list-item{
+  display: flex;
+height: 50px;
+padding:5 10px;
+align-items: center; 
+color: #ccc;
+font-size: 14px;
+position: relative;
+}
+.left-content-list .list-item:hover{
+  background-color: #465570;
+
+ 
+}
+.left-content-list .list-item img{
+  width: 20px;
+  height: 20px; 
+  margin-right: 5px;
+  margin-top: 5px;
+}
+.left-content-list .list-item .icons{
+  display: none;
+}
+.left-content-list .list-item:hover .icons{
+  display: block;
+  position: absolute;
+  right: 0;
+  /* top: 5px; */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+background-color: #465570;
+width: 60px;
+}
+.left-content-list .list-item .editMode .icons{
+  display: flex;
+  width: 60px;
+  height: 50px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+
+}
+.left-content-list .list-item .editMode{
+  position: absolute;
+  top: 5px;
+  right: 0;
+  height: 40px;
+  /* display: flex; */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #162540;
+  width: 240px;
+  z-index: 100;
+
+
+}
+.left-content-list .list-item:hover .editMode{
+  background-color: #465570;
+}
+
+.left-content-list .list-item .editMode input{
+  flex:1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+
+.list-scroll-area {
+ flex: 1;         /* 让这个盒子自动占满剩余空间 */
+  overflow-y: auto;/* 内容太多时，垂直方向自动出现滚动条 */
+  /* Optional: Custom scrollbar styling for webkit browsers */
+}
+/* 选中使用了 .list-scroll-area 类的元素的滚动条 */
+.list-scroll-area::-webkit-scrollbar {
+  width: 6px;  /* 把滚动条设置成 **细窄的 6px 宽度** */
+}
+
+/* 滚动条上那个**可以拖动的小滑块** */
+.list-scroll-area::-webkit-scrollbar-thumb {
+  background-color: #4a71ef;  /* 滑块颜色是蓝色（主题蓝） */
+  border-radius: 3px;          /* 滑块圆角，看起来圆润不生硬 */
+}
+
+/* 滚动条的**背景轨道**（就是滑块滑动的那条槽） */
+.list-scroll-area::-webkit-scrollbar-track {
+  background-color: transparent;  /* 轨道完全透明，不显示底色 */
+}
+.rightPane{
+  display: flex;
+  flex-direction: column;
+  /* 第一种办法 */
+  /* width:calc(100vw - 260px); */
+  /* 第二种 */
+
+  flex: 1; /* 让这个盒子自动占满剩余空间 */
+  background-color: #efefef;
+}
+.rightPane .rightHeader{
+  display: flex;
+  height: 70px;
+  padding-left: 10px; /* Reduced from 40px to move logo closer to left */
+  padding-right: 20px;
+  align-items: center;
+  background-color: #fff;
+}
+.rightHeader .rightLogo img{
+  width: 140px;
+  height: 60px; 
+  object-fit: contain;
+  object-position: left center; /* Ensure image content aligns left within the box */
+ padding-bottom: 20px;
+}
+.rightInfo{
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes rightInfo and subsequent elements to the right */
+  margin-right: 20px; /* Space between info and options */
+}
+.avaterImg img,.listIcon img{
+  width: 30px;
+  height: 30px;
+}
+.avaterInfoList .avaterInfoItem, .optionsInfoList .optionsInfoItem{
+  display: flex;
+height: 50px;
+justify-content: center;
+align-items: center;
+  font-size: 14px;
+  color: #999;
+  border-bottom: 1px solid #efefef;
+}
+.optionsInfoList,.avaterInfoList{
+  display: none;
+}
+.rightInfo>div{
+  width: 60px;
+  font-size: 14px;
+  color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  position: relative;
+
+
+
+}
+.rightInfo .avater:hover .avaterInfoList{
+  display: block;
+  position: absolute;
+  width: 120px;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #999;
+  border-radius: 5px;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+
+
+}
+.rightInfo .options:hover .optionsInfoList{
+  display: block;
+   position: absolute;
+  width: 120px;
+  height: 100px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #999;
+  border-radius: 5px;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  left: -50px;
+}
+.rightInfo .avater{
+  border-right: 1px solid #efefef;
+}
+.chatAvater img{
+  width: 25px;
+  height: 25px;
+
+}
+.chatIconList img{
+  width: 20px;
+  height: 20px;
+}
+.rightChatList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  flex: 1;
+  overflow: scroll;
+
+}
+.rightChatList::-webkit-scrollbar{
+  width: 1px;
+}
+.chatContentItem{
+  display: flex;
+  width: 1000px;
+  margin-top: 20px;
+
+}
+.chatContentItem .chatAvater{
+  width: 50px;
+} 
+.chatMain{
+  flex: 1;
+
+}
+.robot .chatMain{
+  background-color: #fff;
+  border-radius: 5px;
+padding: 10px;
+}
+.chatIconList{
+  display: flex;
+  justify-content: flex-end;
+
+}
+.chatMain .txt{
+  display: flex;
+  flex-direction: column;
+   
+}
+.txt ul{
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-top: 10px;
+}
+
+.chatIconList>div{
+  padding: 10px;
+}
+.rightBottomInput{
+  height: 160px;
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.rightBottomInput textarea{
+  width: 950px;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  /* border: 1px solid skyblue;
+   */
+   outline: none;
+   border: none;
+  box-sizing: border-box;
+
+
+}
+.rightBottomInput textarea:focus{
+  border: 1px solid skyblue;
+}
+.rightBottomInput .uploadImg{
+  position: absolute;
+  bottom: 70px;
+right: 100px;
+} 
+.rightBottomInput .uploadImg img{
+  width: 25px;
+  height: 25px;
+}
+button.submit{
+  background-color: rgb(10, 113, 223);
+  color: #fff;
+  width: 70px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+  border: none;
+  position: absolute;
+bottom: 70px;
+right: 10px;
+
+}

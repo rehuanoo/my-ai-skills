@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>div变按钮</div>
+  <script>
+    var div = document.querySelector('div');
+    //只能加函数 
+    div.onclick = function () {
+      // div.innerHTML = '<button>按钮</button>';
+      div.style.backgroundColor = 'red';
+      div.style.width = '100px';
+      div.style.height = '100px';
+
+    }
+    // 添加事件监听
+    var eventFn = function () {
+      div.style.color = 'blue';
+      div.style.fontSize = '20px';
+    }
+    div.addEventListener('click', eventFn);
+    div.addEventListener('click', () => {
+      div.style.lineHeight = '50px';
+      div.style.textAlign = 'center';
+    })
+  </script>
+</body>
+
+</html>

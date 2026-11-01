@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- open with live server不支持post请求（后端不支持） -->
+</head>
+
+<body>
+  <p>Ajax</p>
+  <script>
+    // 创建ajax 对象
+    var xhr = new XMLHttpRequest();
+    // 设置请求地址和方法
+    xhr.open('post', 'http://127.0.0.1:5500/2.web/21.ajax/ajax.txt');
+    // 异步过程,js会继续运行其它代码
+    // 监听请求状态
+    xhr.onreadystatechange = function () {
+      console.log(xhr);
+      // 0:请求未初始化
+      // 1:请求已建立
+      // 2:请求已发送
+      // 3:请求处理中
+      // 4:请求已完成，且响应已就绪(除了正常响应200，还有服务器错误404，403等,连接超时等)
+      console.log(xhr.readyState);
+      // 判断请求是否完成，状态码为4，表示请求已经完成
+      if (xhr.readyState === 4) {
+        // 判断响应状态码是否为200，表示请求成功
+        if (xhr.status === 200) {
+          // 获取响应数据
+          var data = xhr.responseText;
+          console.log(data);
+        }
+      }
+    }
+    // 发送请求
+    xhr.send("qurry='今天天气怎么样？'&user='张三'")
+  </script>
+</body>
+
+</html>

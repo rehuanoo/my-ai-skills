@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    window.onload = function () {
+      // window.onload事件会在页面中的所有资源加载完毕后触发
+      console.log("window.onload")
+      var btn = document.querySelector("button")
+      console.log(btn)
+    }
+
+    window.addEventListener("load", function () {
+      console.log("window.onload")
+      var btn = document.querySelector("button")
+      console.log(btn)
+    })
+
+    window.addEventListener("DOMContentLoaded", function () {
+      // DOMContentLoaded事件会在页面中的html结构加载完毕后触发
+      console.log("DOMContentLoaded")
+      var btn = document.querySelector("button")
+      console.log(btn)
+    })
+
+    window.addEventListener("resize", function () {
+      // resize事件会在窗口大小发生改变时触发
+      console.log("resize")
+      let width = window.innerWidth
+      console.log(width)
+      let percent = (width / 1920).toFixed(2)
+      let value = percent * 255
+      console.log(percent)
+      document.body.style.backgroundColor = "rgb(255," + value + "," + value + ")"
+    })
+
+
+
+  </script>
+  <button>按钮</button>
+</body>
+
+</html>

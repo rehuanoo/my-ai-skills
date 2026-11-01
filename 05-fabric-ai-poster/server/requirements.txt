@@ -1,0 +1,5 @@
+# AI 海报生成后端
+gradio>=4.44
+requests>=2.31
+Pillow>=10.0
+python-dotenv>=1.0

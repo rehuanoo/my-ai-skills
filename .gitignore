@@ -1,0 +1,115 @@
+# ===== AI / Python 项目通用 =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虚拟环境
+.venv/
+venv/
+venv*/
+env/
+ENV/
+.python-version
+
+# ===== 模型权重 / 大文件（不要提交到 Git）=====
+*.safetensors
+*.ckpt
+*.bin
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+models/
+checkpoints/
+Lora/
+lora/
+stable-diffusion*/
+ComfyUI模型/
+*.gguf
+
+# ===== 数据集 / 音频 / 视频 =====
+data/
+*.csv.bz2
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.mp4
+*.avi
+*.mov
+
+# ===== 密钥 / 本地配置 =====
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+config.local.*
+
+# ===== 数据库 / 日志 / 缓存 =====
+*.db
+*.sqlite
+*.sqlite3
+*.log
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 例外：目录/文件名里带 .sqlite 的学习项目与 notebook 产物
+!10-flask-ai-backend/10.sqlite/
+!10-flask-ai-backend/10.sqlite/**
+!11-web-scraping-data/03.numpy/*.npy
+!11-web-scraping-data/03.numpy/*.npz
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# ===== Node =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+.vite/
+
+# ===== 编辑器 / 系统 =====
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+.~*

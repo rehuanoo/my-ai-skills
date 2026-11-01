@@ -1,0 +1,18 @@
+/* 全局基础样式：暗色摄影棚氛围，具体排版交给 App.vue */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #08080f;
+  color: #e7e9f2;
+  font-family: 'Microsoft YaHei', system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+}

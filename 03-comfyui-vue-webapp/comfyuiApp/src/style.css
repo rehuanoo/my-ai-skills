@@ -1,0 +1,19 @@
+:root {
+  font: 16px/1.6 'Microsoft YaHei', 'Segoe UI', system-ui, sans-serif;
+  color: #333;
+  background: #f5f5f5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}

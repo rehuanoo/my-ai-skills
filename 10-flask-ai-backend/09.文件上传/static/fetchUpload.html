@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="/static/img/upload.png" alt="">
+  <input type="text" name="username" id="username">
+  <input type="password" name="password" id="password">
+  <input type="file" name="imgAvater" style="display: none;">
+
+  <script>
+    let img = document.querySelector('img');
+    let fileInput = document.querySelector('input[type="file"]');
+    let usernameInput = document.querySelector('#username');
+    let passwordInput = document.querySelector('#password')
+
+    img.onclick = function () {
+      fileInput.click();
+    }
+    fileInput.addEventListener('change', function (e) {
+      let file = e.target.files[0];
+      console.log(file);
+
+      let formData = new FormData();
+      formData.append('imgAvater', file);
+      formData.append('username', usernameInput.value);
+      formData.append('password', passwordInput.value);
+
+      fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      })
+        .then((res) => {
+          return res.json()
+        })
+        .then((data) => {
+          console.log(data)
+          alert(data.title)
+          let img = new Image();
+          img.src = '/static/upload/imgs/' + data.img
+          document.body.appendChild(img)
+        })
+
+
+    })
+
+  </script>
+</body>
+
+</html>

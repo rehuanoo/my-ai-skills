@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var age = 18;
+    if (age >= 18) {
+      console.log("成年了");
+    } else {
+      console.log("未成年");
+    }
+    var age = 14;
+    if (age >= 18) {
+      console.log("成年了");
+    } else if (age >= 14) {
+      console.log("青少年");
+    } else {
+      console.log("未成年");
+    }
+
+    let childType = age >= 18 ? "成年了" : "未成年";
+    console.log(childType);
+
+    switch (age) {
+      case 18:
+        console.log("成年人");
+        break;
+      case 14:
+        console.log("青少年");
+        break;
+      default:
+        console.log("未成年人");
+        break;
+    }
+
+  </script>
+  </script>
+</body>
+
+</html>

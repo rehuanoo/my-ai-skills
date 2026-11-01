@@ -1,0 +1,10 @@
+# SDXL 绘画应用
+torch>=2.1
+diffusers>=0.30
+transformers>=4.40
+accelerate>=0.30
+safetensors>=0.4
+gradio>=4.44
+langchain-openai>=0.2
+Pillow>=10.0
+numpy>=1.24

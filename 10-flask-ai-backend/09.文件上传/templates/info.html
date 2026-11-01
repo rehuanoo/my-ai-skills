@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>{{info.title}}</h1>
+  <p>{{info.content}}</p>
+  <img src="/static/upload/imgs/{{info.img}}" alt="">
+
+  <p><span id="time">5</span>秒后跳转至{{info.path}}</p>
+
+  <script>
+    let time = document.getElementById("time");
+    let timeNum = parseInt(time.innerText);
+    let timer = setInterval(() => {
+      timeNum--;
+      time.innerText = timeNum;
+      if (timeNum === 0) {
+        clearInterval(timer)
+        // 跳转页面
+        // window.location.href = "{{info.path}}"
+        // 或者
+        location.assign("{{info.path}}")
+      }
+    }, 1000)
+  </script>
+</body>
+
+</html>
